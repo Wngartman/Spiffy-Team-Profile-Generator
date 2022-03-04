@@ -1,12 +1,14 @@
+/* eslint-disable no-undef */
 // Importing required npm packages and questions
 const fs = require('fs');
 const inquirer = require('inquirer');
-const { enginenerQuestions, managerQuestions, internQuestions, mainQuestions, engineerQuestions } = require('./lib/Questions');
+const { managerQuestions, internQuestions, mainQuestions, engineerQuestions } = require('./lib/Questions');
 const Manager = require('./lib/Manager');
-// const Engineer = require('./lib/Engineer');
-// const Intern = require('./lib/Intern');
-// const makeHtml = require('./lib/makeHTML');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const buildHtml = require('./lib/buildHtml');
 const employeeArray = [];
+
 // Calls and prompts the questions for the manager position then pushes the answer to the employee array
 const newManager = () => {
     inquirer.prompt(managerQuestions)
@@ -30,7 +32,7 @@ const newIntern = () => {
 const newEngineer = () => {
     inquirer.prompt(engineerQuestions)
         .then(answers => {
-            const teamMember = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
+            const teamMember = new Engineer(answers.name, answers.id, answers.email, answers.github)
             employeeArray.push(teamMember)
             console.log("New Engineer Added!")
             main()
@@ -39,7 +41,7 @@ const newEngineer = () => {
 // Writes a HTML file with the info provided by the employeeArray
 const createHtml = () => {
     console.log('Page Created');
-    fs.writeFile('./dist/index.html', makeHtml(employeeArray), (err) => {
+    fs.writeFile('./dist/index.html', buildHtml(employeeArray), (err) => {
         if (err) throw err;
     });
 }
