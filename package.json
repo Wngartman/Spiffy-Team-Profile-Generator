@@ -4,7 +4,26 @@
     "inquirer": "^8.2.0",
     "jest": "^27.5.1"
   },
-  "devDependencies": {
-    
-  }
+  "devDependencies": {},
+  "name": "spiffy-team-profile-generator",
+  "description": "[Description] A Team Profile Generator for a company",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wngartman/Spiffy-Team-Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wngartman/Spiffy-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Wngartman/Spiffy-Team-Profile-Generator#readme"
 }
